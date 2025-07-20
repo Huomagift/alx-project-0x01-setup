@@ -28,38 +28,38 @@ const mockUsers: UserProps[] = [
   },
 ];
 
-const Users: React.FC<{ posts: UserProps[] }> = ({ posts }) => {
+const Users: React.FC<UserProps[]> = ({ posts }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [usersState, setUsersState] = useState<UserData[]>(posts);
 
-  const defaultUser: UserData = {
-    userId: 1,
-    id: Date.now(),
-    name: "",
-    username: "",
-    email: "",
-    address: {
-      street: "",
-      suite: "",
-      city: "",
-      zipcode: "",
-      geo: {
-        lat: "",
-        lng: "",
-      },
-    },
-    phone: "",
-    website: "",
-    company: {
-      name: "",
-      catchPhrase: "",
-      bs: "",
-    },
-  };
+  // const defaultUser: UserData = {
+  //   userId: 1,
+  //   id: Date.now(),
+  //   name: "",
+  //   username: "",
+  //   email: "",
+  //   address: {
+  //     street: "",
+  //     suite: "",
+  //     city: "",
+  //     zipcode: "",
+  //     geo: {
+  //       lat: "",
+  //       lng: "",
+  //     },
+  //   },
+  //   phone: "",
+  //   website: "",
+  //   company: {
+  //     name: "",
+  //     catchPhrase: "",
+  //     bs: "",
+  //   },
+  // };
 
   const handleAddUser = (newUser: UserData) => {
-    const completeUser = { ...defaultUser, ...newUser, id: Date.now() };
-    setUsersState([...usersState, completeUser]);
+    const completeUser = { ...newUser, id: Date.now() };
+    setUsersState((prevUsers) => [...prevUsers, completeUser]);
   };
 
   return (
